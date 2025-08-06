@@ -1,0 +1,131 @@
+command /spawnnpc:
+	permission: op
+	trigger:
+		set {_a} to 1025
+		loop 150 times:
+			set {_n} to nbt compound from "{NoAI:1b,VillagerData:{profession:""minecraft:mason"",type:""minecraft:swamp""}}"
+			set {_loc} to location {_a}, 75, 1009 in world "Grow_a_Garden"
+			spawn villager at {_loc} with nbt {_n}
+			set display name of last spawned villager to "&2Inselerweiterungen"
+			set yaw of last spawned villager to 90
+			add 1000 to {_a}
+#blöcke sind teuer
+on right click on villager:
+	if display name of event-entity contains "Inselerweiterungen":
+		open chest inventory with 6 rows named "&2Inselerweiterungen" to player
+		set slot 0 of player's current inventory to oak slab named "&aOak Slab" with lore "&6Preis: &e100 Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 1 of player's current inventory to dark oak slab named "&aDark Oak Slab" with lore "&6Preis: &e5k Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 2 of player's current inventory to grass block named "&aGrasblock" with lore "&6Preis: &e10k Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 3 of player's current inventory to podzol named "&aPodzol" with lore "&6Preis: &e10M Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 4 of player's current inventory to farmland named "&aFarmland" with lore "&6Preis: &e3M Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 5 of player's current inventory to item frame named "&aItem Frame" with lore "&6Preis: &e1M Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 6 of player's current inventory to prismarine named "&aPrismarin" with lore "&6Preis: &e20k Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 7 of player's current inventory to netherite block named "&aNetherite Block" with lore "&6Preis: 3B%nl%&3Absolut nutzlos aber du kannst damit flexen!%nl%&6Klicke, um zu kaufen!"
+		set slot 8 of player's current inventory to sea lantern named "&aSeelaterne" with lore "&6Preis: &e50k Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 9 of player's current inventory to water bucket named "&aWassereimer" with lore "&6Preis: &e2M Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 45 of player's current inventory to iron axe named "&aAxt" with lore "&6Preis: &e1M Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 46 of player's current inventory to iron shovel named "&aSchaufel" with lore "&6Preis: &e1M Gardencoins%nl%&6Klicke, um zu kaufen!"
+		set slot 47 of player's current inventory to iron pickaxe named "&aSpitzhacke" with lore "&6Preis: &e1M Gardencoins%nl%&6Klicke, um zu kaufen!"
+	cancel event
+on inventory click:
+	if name of event-inventory contains "&2Inselerweiterungen":
+		cancel event
+		if clicked slot is 0:
+			if {gardencoins::%player's uuid%} >= 100:
+				remove 100 from {gardencoins::%player's uuid%}
+				give oak slab to player
+				send "&aDu hast dir eine &2Oak Slab&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 1:
+			if {gardencoins::%player's uuid%} >= 5000:
+				remove 5000 from {gardencoins::%player's uuid%}
+				give dark oak slab to player
+				send "&aDu hast dir eine &2Dark Oak Slab&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 2:
+			if {gardencoins::%player's uuid%} >= 10000:
+				remove 10000 from {gardencoins::%player's uuid%}
+				give grass block to player
+				send "&aDu hast dir einen &2Grasblock&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 3:
+			if {gardencoins::%player's uuid%} >= 10000000:
+				remove 10000000 from {gardencoins::%player's uuid%}
+				give podzol to player
+				send "&aDu hast dir einen &2Podzol&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 4:
+			if {gardencoins::%player's uuid%} >= 3000000:
+				remove 3000000 from {gardencoins::%player's uuid%}
+				give farmland to player
+				send "&aDu hast dir ein &2Farmland&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 5:
+			if {gardencoins::%player's uuid%} >= 1000000:
+				remove 1000000 from {gardencoins::%player's uuid%}
+				give item frame to player
+				send "&aDu hast dir ein &2Item Frame&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 6:
+			if {gardencoins::%player's uuid%} >= 20000:
+				remove 20000 from {gardencoins::%player's uuid%}
+				give prismarine to player
+				send "&aDu hast dir ein &2Prismarin&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 7:
+			if {gardencoins::%player's uuid%} >= 300000000:
+				remove 300000000 from {gardencoins::%player's uuid%}
+				give netherite block to player
+				send "&aDu hast dir einen &2Netherite Block&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 8:
+			if {gardencoins::%player's uuid%} >= 50000:
+				remove 50000 from {gardencoins::%player's uuid%}
+				give sea lantern to player
+				send "&aDu hast dir eine &2Seelaterne&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 9:
+			if {gardencoins::%player's uuid%} >= 2000000:
+				remove 2000000 from {gardencoins::%player's uuid%}
+				give water bucket to player
+				send "&aDu hast dir einen &2Wassereimer&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 45:
+			if {gardencoins::%player's uuid%} >= 1000000:
+				remove 1000000 from {gardencoins::%player's uuid%}
+				give iron axe to player
+				send "&aDu hast dir eine &2Axt&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 46:
+			if {gardencoins::%player's uuid%} >= 1000000:
+				remove 1000000 from {gardencoins::%player's uuid%}
+				give iron shovel to player
+				send "&aDu hast dir eine &2Schaufel&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+		if clicked slot is 47:
+			if {gardencoins::%player's uuid%} >= 1000000:
+				remove 1000000 from {gardencoins::%player's uuid%}
+				give iron pickaxe to player
+				send "&aDu hast dir eine &2Spitzhacke&a gekauft!" to player
+			else:
+				send "&cDu hast nicht genug Gardencoins!" to player
+command /spawnnpcinfrontofme:
+	permission: op
+	trigger:
+		set {_n} to nbt compound from "{NoAI:1b,VillagerData:{profession:""minecraft:mason"",type:""minecraft:swamp""}}"
+		set {_loc} to location 0 blocks above player's target block 
+		spawn villager at {_loc} with nbt {_n}
+		set display name of last spawned villager to "&2Inselerweiterungen"
+		set yaw of last spawned villager to 90

@@ -1,0 +1,55 @@
+--------------[ Ernst123 was punished for Improbable (Type B) ]--------------
+
+Date & Time:
+ - Date: 08-04-2025
+ - Time: 19:28:42
+
+Location:
+ - World: Grow_A_Garden
+ - X: 33019.69488480621
+ - Y: 80.79673560066871
+ - Z: 1003.7071163420346
+
+Information:
+ - UUID: 248d32a1-dc0f-4e73-a1e1-67bbd00efd5f
+ - Keep Alive Ping: 1222
+ - Transaction Ping: 260
+ - Server TPS: 20
+ - Sensitivity: 99
+ - Gamemode: SURVIVAL
+ - Client Brand: Unresolved
+ - Vehicle: null
+ - Version: 1.21.4
+ - Last Damage: 190.65 seconds ago
+
+Total Violations: 32
+ - Combat Violations: 0
+ - Movement Violations: 31
+ - Player Violations: 1
+
+Misc Information:
+ - Since Teleport Ticks: 1080
+ - Since Riptide Ticks: 3396
+ - Flying Delay: 1
+ - Since Velocity Ticks: 3813
+ - Since Firework Ticks: 3396
+ - Ticks Existed: 3813
+ - Since Vehicle Ticks: 3296
+ - Since Liquid Ticks: 375
+ - Queued Transactions: 0
+ - Joined: 357 seconds ago
+ - Holding Item (Main Hand): ItemStack{PUMPKIN x 38}
+ - Holding Item (Off Hand): ItemStack{AIR x 0}
+
+All Violations:
+ - Flight (Type D) [VL: 29] (Invalid Y-Axis movement.)
+ - Speed (Type B) [VL: 1] (Moving too quickly on the ground.)
+ - Speed (Type D) [VL: 1] (Moving too quickly on the ground.)
+ - Improbable (Type B) [VL: 1] (Too many combined movement violations.)
+
+Blocks Nearby: [AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR, AIR]
+Entities Nearby: []
+Potion Effects: []
+---------------------------------------------------------------------------
+
+

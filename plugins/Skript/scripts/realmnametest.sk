@@ -1,0 +1,4 @@
+command /realmname:
+	permission: op 
+	trigger:
+		set the realm's name to "<#15E9B5>G<#17E9A8>r<#18E99A>o<#1AE98D>w <#1DE972>a <#21E958>G<#22E94A>a<#24E93D>r<#26E930>d<#27E922>e<#29E915>n"

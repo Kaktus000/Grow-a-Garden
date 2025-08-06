@@ -1,0 +1,143 @@
+function format(number: number) :: text:
+	if {_number} >= 1000000000000000000:
+		set {_result} to "%{_number}/ 1000000000000000000% E"
+	else if {_number} >= 1000000000000000:
+		set {_result} to "%{_number}/ 1000000000000000% P"
+	else if {_number} >= 1000000000000:
+		set {_result} to "%{_number}/ 1000000000000% T"
+	else if {_number} >= 1000000000:
+		set {_result} to "%{_number}/ 1000000000% B"
+	else if {_number} >= 1000000:
+		set {_result} to "%{_number}/ 1000000% M"
+	else if {_number} >= 1000:
+		set {_result} to "%{_number}/ 1000% K"
+	else:
+		set {_result} to "%{_number}%"
+	return {_result}
+
+every tick:
+	loop all players:
+		scoreboard(loop-player)
+function scoreboard(player: player):
+	set {_player}'s food level to 10
+	toggle {_player}'s fastboard on
+	set {_t} to 300 - seconds of difference between now and {seedinvreset}
+	if {_t} <= 0:
+		seedinvreset()
+	set {_m} to 0 
+	while {_t} >= 60:
+		add 1 to {_m}
+		remove 60 from {_t}
+	if {_player}'s cytooxien lang is "en":
+		set title of {_player}'s fastboard to "<#15E9B5>ɢ<#15E9A7>ʀ<#15E998>ᴏ<#15E98A>ᴡ <#15E96D>ᴀ <#18E953>ɢ<#1CE946>ᴀ<#1FE93A>ʀ<#22E92E>ᴅ<#26E921>ᴇ<#29E915>ɴ"
+	else if {_player}'s cytooxien lang is "ru":
+		set title of {_player}'s fastboard to "<#15E9B5>в<#15E9A4>ы<#15E993>р<#15E981>а<#15E970>с<#15E95F>т<#19E950>и <#21E933>с<#25E924>а<#29E915>д"
+	else if {_player}'s cytooxien lang is "fr":
+		set title of {_player}'s fastboard to "<#15E9B5>ᴄ<#15E9AA>ᴜ<#15E9A0>ʟ<#15E995>ᴛ<#15E98A>ɪ<#15E97F>ᴠ<#15E975>ᴇ <#15E95F>ᴜ<#18E956>ɴ <#1DE943>ᴊ<#1FE93A>ᴀ<#22E931>ʀ<#24E928>ᴅ<#27E91E>ɪ<#29E915>ɴ"
+	else if {_player}'s cytooxien lang is "es":
+		set title of {_player}'s fastboard to "<#15E9B5>ᴄ<#15E9AB>ᴜ<#15E9A2>ʟ<#15E998>ᴛ<#15E98F>ɪ<#15E985>ᴠ<#15E97C>ᴀ <#15E969>ᴜ<#15E95F>ɴ <#1AE94D>ᴊ<#1DE943>ᴀ<#1FE93A>ʀ<#22E931>ᴅ<#24E928>ɪ<#27E91E>́<#29E915>ɴ"
+	else if {_player}'s cytooxien lang is "de-AT":
+		set title of {_player}'s fastboard to "<#15E9B5>ᴀ <#17E9A2>ɢ<#19E999>ᴏ<#1AE98F>ᴀ<#1BE986>ʀ<#1CE97D>ᴛ<#1DE973>ᴇ<#1EE96A>ɴ <#21E957>ᴢ<#22E94D>ᴜ<#23E944>̈<#24E93B>ᴄ<#25E931>ʜ<#27E928>ᴛ<#28E91E>ᴇ<#29E915>ɴ"
+	else if {_player}'s cytooxien lang is "de-CH":
+		set title of {_player}'s fastboard to "<#15E9B5>ᴇ <#15E9A0>ɢ<#15E995>ᴀ<#15E98A>ᴀ<#15E97F>ʀ<#15E975>ᴛ <#15E95F>ᴢ<#18E954>ᴜ<#1BE94A>ü<#1EE93F>ᴄ<#20E935>ʜ<#23E92A>ᴛ<#26E920>ᴇ<#29E915>ɴ"
+	else if {_player}'s cytooxien lang is "nl":
+		set title of {_player}'s fastboard to "<#15E9B5>ᴋ<#15E9A9>ᴡ<#15E99C>ᴇ<#15E990>ᴇ<#15E984>ᴋ <#15E96B>ᴇ<#15E95F>ᴇ<#18E953>ɴ <#1FE93A>ᴛ<#22E92E>ᴜ<#26E921>ɪ<#29E915>ɴ"
+	else if {_player}'s cytooxien lang is "mxn":
+		set title of {_player}'s fastboard to "<#15E9B5>ɢ<#16E9AD>ö<#18E99D>ɴ<#19E995>ɴ <#1BE985>ᴅ<#1CE97D>ɪ<#1DE975>ʀ <#1FE965>'<#20E95D>ɴ<#21E955>ᴇ<#22E94D>ɴ <#24E93D>ɢ<#25E935>ᴀ<#26E92D>ʀ<#27E925>ᴅ<#28E91D>ᴇ<#29E915>ɴ"
+	else:
+		set title of {_player}'s fastboard to "<#15E9B5>ɢ<#15E9A7>ʀ<#15E998>ᴏ<#15E98A>ᴡ <#15E96D>ᴀ <#18E953>ɢ<#1CE946>ᴀ<#1FE93A>ʀ<#22E92E>ᴅ<#26E921>ᴇ<#29E915>ɴ"
+	set line 1 of {_player}'s fastboard to ""
+	if {_player}'s cytooxien lang is "en":
+		set line 2 of {_player}'s fastboard to "&6Gardencoins: &e%format({gardencoins::%{_player}'s uuid%})%"
+	else if {_player}'s cytooxien lang is "ru":
+		set line 2 of {_player}'s fastboard to "&6Gardencoins: &e%format({gardencoins::%{_player}'s uuid%})%"
+	else if {_player}'s cytooxien lang is "fr":
+		set line 2 of {_player}'s fastboard to "&6Gardencoins : &e%format({gardencoins::%{_player}'s uuid%})%"
+	else if {_player}'s cytooxien lang is "es":
+		set line 2 of {_player}'s fastboard to "&6Gardencoins: &e%format({gardencoins::%{_player}'s uuid%})%"
+	else if {_player}'s cytooxien lang is "de-AT":
+		set line 2 of {_player}'s fastboard to "&6Gardencoins: &e%format({gardencoins::%{_player}'s uuid%})%"
+	else if {_player}'s cytooxien lang is "de-CH":
+		set line 2 of {_player}'s fastboard to "&6Gardecoins: &e%format({gardencoins::%{_player}'s uuid%})%"
+	else if {_player}'s cytooxien lang is "nl":
+		set line 2 of {_player}'s fastboard to "&6Gardencoins: &e%format({gardencoins::%{_player}'s uuid%})%"
+	else if {_player}'s cytooxien lang is "mxn":
+		set line 2 of {_player}'s fastboard to "&6Gardencoins: &e%format({gardencoins::%{_player}'s uuid%})%"
+	else:
+		set line 2 of {_player}'s fastboard to "&6Gardencoins: &e%format({gardencoins::%{_player}'s uuid%})%"
+	set line 3 of {_player}'s fastboard to ""
+	if {_player}'s cytooxien lang is "en":
+		set line 4 of {_player}'s fastboard to "&2Time until shop reset:&e %{_m}%m %{_t}%s"
+	else if {_player}'s cytooxien lang is "ru":
+		set line 4 of {_player}'s fastboard to "&2Время до сброса магазина:&e %{_m}%m %{_t}%s"
+	else if {_player}'s cytooxien lang is "fr":
+		set line 4 of {_player}'s fastboard to "&2Temps avant le reset du shop :&e %{_m}%m %{_t}%s"
+	else if {_player}'s cytooxien lang is "es":
+		set line 4 of {_player}'s fastboard to "&2Tiempo para el reinicio de la tienda:&e %{_m}%m %{_t}%s"
+	else if {_player}'s cytooxien lang is "de-AT":
+		set line 4 of {_player}'s fastboard to "&2Zeit bis zum Lodn-Reset:&e %{_m}%m %{_t}%s"
+	else if {_player}'s cytooxien lang is "de-CH":
+		set line 4 of {_player}'s fastboard to "&2Zyt bis zum Shop-Reset:&e %{_m}%m %{_t}%s"
+	else if {_player}'s cytooxien lang is "nl":
+		set line 4 of {_player}'s fastboard to "&2Tijd tot winkel reset:&e %{_m}%m %{_t}%s"
+	else if {_player}'s cytooxien lang is "mxn":
+		set line 4 of {_player}'s fastboard to "&2Shop-Reset in:&e %{_m}%m %{_t}%s, bruh"
+	else:
+		set line 4 of {_player}'s fastboard to "&2Zeit bis zum Shop-Reset:&e %{_m}%m %{_t}%s"
+	set line 5 of {_player}'s fastboard to ""
+	if {_player}'s cytooxien lang is "en":
+		set line 6 of {_player}'s fastboard to "&3Players Online: &e%player count%"
+	else if {_player}'s cytooxien lang is "ru":
+		set line 6 of {_player}'s fastboard to "&3Игроков онлайн: &e%player count%"
+	else if {_player}'s cytooxien lang is "fr":
+		set line 6 of {_player}'s fastboard to "&3Joueurs en ligne: &e%player count%"
+	else if {_player}'s cytooxien lang is "es":
+		set line 6 of {_player}'s fastboard to "&3Jugadores en línea: &e%player count%"
+	else if {_player}'s cytooxien lang is "de-AT":
+		set line 6 of {_player}'s fastboard to "&3Spieler online: &e%player count%"
+	else if {_player}'s cytooxien lang is "de-CH":
+		set line 6 of {_player}'s fastboard to "&3Spieler online: &e%player count%"
+	else if {_player}'s cytooxien lang is "nl":
+		set line 6 of {_player}'s fastboard to "&3Spelers online: &e%player count%"
+	else if {_player}'s cytooxien lang is "mxn":
+		set line 6 of {_player}'s fastboard to "&3Leute online: &e%player count%"
+	else:
+		set line 6 of {_player}'s fastboard to "&3Spieler Online: &e%player count%"
+	set line 7 of {_player}'s fastboard to ""
+	if {_player}'s cytooxien lang is "en":
+		set line 8 of {_player}'s fastboard to "&1Discord: &b/rdiscord"
+	else if {_player}'s cytooxien lang is "ru":
+		set line 8 of {_player}'s fastboard to "&1Дискорд: &b/rdiscord"
+	else if {_player}'s cytooxien lang is "fr":
+		set line 8 of {_player}'s fastboard to "&1Discord: &b/rdiscord"
+	else if {_player}'s cytooxien lang is "es":
+		set line 8 of {_player}'s fastboard to "&1Discord: &b/rdiscord"
+	else if {_player}'s cytooxien lang is "de-AT":
+		set line 8 of {_player}'s fastboard to "&1Discord: &b/rdiscord"
+	else if {_player}'s cytooxien lang is "de-CH":
+		set line 8 of {_player}'s fastboard to "&1Discord: &b/rdiscord"
+	else if {_player}'s cytooxien lang is "nl":
+		set line 8 of {_player}'s fastboard to "&1Discord: &b/rdiscord"
+	else if {_player}'s cytooxien lang is "mxn":
+		set line 8 of {_player}'s fastboard to "&1Discord: &b/rdiscord"
+	else:
+		set line 8 of {_player}'s fastboard to "&1Discord: &b/rdiscord"
+	set line 9 of {_player}'s fastboard to ""
+	if {_player}'s cytooxien lang is "en":
+		set line 10 of {_player}'s fastboard to "&aHave fun gardening!"
+	else if {_player}'s cytooxien lang is "ru":
+		set line 10 of {_player}'s fastboard to "&aУдачи в садоводстве!"
+	else if {_player}'s cytooxien lang is "fr":
+		set line 10 of {_player}'s fastboard to "&aAmuse-toi bien à jardiner !"
+	else if {_player}'s cytooxien lang is "es":
+		set line 10 of {_player}'s fastboard to "&a¡Diviértete cultivando!"
+	else if {_player}'s cytooxien lang is "de-AT":
+		set line 10 of {_player}'s fastboard to "&aVü Spaß beim Gärtnan!"
+	else if {_player}'s cytooxien lang is "de-CH":
+		set line 10 of {_player}'s fastboard to "&aViu Spass bim Gärtnere!"
+	else if {_player}'s cytooxien lang is "nl":
+		set line 10 of {_player}'s fastboard to "&aVeel plezier met tuinieren!"
+	else if {_player}'s cytooxien lang is "mxn":
+		set line 10 of {_player}'s fastboard to "&aSheesh, viel Spaß beim Gärtnern, Bro!"
+	else:
+		set line 10 of {_player}'s fastboard to "&aViel Spaß beim Gärtnern!"

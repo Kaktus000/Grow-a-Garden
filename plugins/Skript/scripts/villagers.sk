@@ -1,0 +1,1069 @@
+on right click on villager:
+	if display name of event-entity contains "Samen":
+		openseedinv(player)
+	else if display name of event-entity contains "Verkaufen":
+		make player execute command "/sell hand"
+		send "&aUm alles zu verkaufen, nutze /sell all" to player
+on join:
+	if player's inventory does not contain diamond hoe:
+		give diamond hoe to player
+on player move:
+	if player's y coordinate < 50:
+		player's name is not "XNeedNoName"
+		teleport player to {growagardenisland::%player's uuid%}
+command /sell [<text>]:
+	trigger:
+		if arg-1 is not set:
+			send "&cNutze /sell hand oder /sell all" to player
+			stop
+		if arg-1 is "hand":
+			if player's tool is not air:
+				set {_total} to 0
+				# Sweet Berries
+				if 1 of player's tool is sweet berries:
+					while 1 of player's tool is sweet berries:
+						remove 1 sweet berries from player's tool
+						add 17 to {gardencoins::%player's uuid%}
+						add 17 to {_total}
+				# Carrots
+				else if 1 of player's tool is carrot:
+					while 1 of player's tool is carrot:
+						remove 1 carrot from player's tool
+						if lore of player's tool contains "Rainy":
+							add 668 to {gardencoins::%player's uuid%}
+							add 668 to {_total}
+						else if lore of player's tool contains "Thunder":
+							add 3340 to {gardencoins::%player's uuid%}
+							add 3340 to {_total}
+						else:
+							add 334 to {gardencoins::%player's uuid%}
+							add 334 to {_total}
+				# Potatoes
+				else if 1 of player's tool is potato:
+					while 1 of player's tool is potato:
+						remove 1 potato from player's tool
+						add 1600 to {gardencoins::%player's uuid%}
+						add 1600 to {_total}
+				else if 1 of player's tool is poisonous potato:
+					while 1 of player's tool is poisonous potato:
+						remove 1 poisonous potato from player's tool
+						add 800 to {gardencoins::%player's uuid%}
+						add 800 to {_total}
+				# Beetroots
+				else if 1 of player's tool is beetroot:
+					while 1 of player's tool is beetroot:
+						remove 1 beetroot from player's tool
+						add 13000 to {gardencoins::%player's uuid%}
+						add 13000 to {_total}
+				# Wheat
+				else if 1 of player's tool is wheat:
+					while 1 of player's tool is wheat:
+						remove 1 wheat from player's tool
+						add 65000 to {gardencoins::%player's uuid%}
+						add 65000 to {_total}
+				# Pumpkin
+				else if 1 of player's tool is pumpkin:
+					while 1 of player's tool is pumpkin:
+						remove 1 pumpkin from player's tool
+						add 120000 to {gardencoins::%player's uuid%}
+						add 120000 to {_total}
+				# Melon
+				else if 1 of player's tool is melon:
+					while 1 of player's tool is melon:
+						remove 1 melon from player's tool
+						add 300000 to {gardencoins::%player's uuid%}
+						add 300000 to {_total}
+				# Spruce Log
+				else if 1 of player's tool is spruce log:
+					while 1 of player's tool is spruce log:
+						remove 1 spruce log from player's tool
+						add 500000 to {gardencoins::%player's uuid%}
+						add 500000 to {_total}
+				# Jungle Log
+				else if 1 of player's tool is jungle log:
+					while 1 of player's tool is jungle log:
+						remove 1 jungle log from player's tool
+						add 1000000 to {gardencoins::%player's uuid%}
+						add 1000000 to {_total}
+				if {_total} > 0:
+					if player's cytooxien lang is "en":
+						send "&aYou received &e%format({_total})% Gardencoins &afor your items!" to player
+					else if player's cytooxien lang is "ru":
+						send "&aВы получили &e%format({_total})% Gardencoins &aза свои предметы!" to player
+					else if player's cytooxien lang is "fr":
+						send "&aTu as reçu &e%format({_total})% Gardencoins &apour tes objets !" to player
+					else if player's cytooxien lang is "es":
+						send "&a¡Has recibido &e%format({_total})% Gardencoins &apor tus objetos!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&aDu host &e%format({_total})% Gardencoins &afür deine Sachn kriagt!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&aDu häsch &e%format({_total})% Gardencoins &afür dini Sache übercho!" to player
+					else if player's cytooxien lang is "nl":
+						send "&aJe hebt &e%format({_total})% Gardencoins &aontvangen voor je items!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&aDu hast so krass &e%format({_total})% Gardencoins &age-sheesh-t für deine Items bekommen! Poggers!" to player
+					else:
+						send "&aDu hast &e%format({_total})% Gardencoins &afür deine Items erhalten!" to player				
+				else:
+					send "&cDieses Item kann nicht verkauft werden." to player
+			else:
+				send "&cDu hast kein Item in der Hand."
+		else if arg-1 is "all":
+			set {_total} to 0
+			# Sweet Berries
+			if player's inventory contains sweet berries:
+				while player's inventory contains sweet berries:
+					remove 1 sweet berries from player's inventory
+					add 17 to {gardencoins::%player's uuid%}
+					add 17 to {_total}
+			# Carrots
+			if player's inventory contains carrot:
+				while player's inventory contains carrot with lore "&aThunder x10 Wert":
+					remove 1 carrot with lore "&aThunder x10 Wert" from player's inventory
+					add 664 to {gardencoins::%player's uuid%}
+					add 664 to {_total}
+				while player's inventory contains carrot with lore "&aRainy x2 Wert":
+					remove 1 carrot with lore "&aRainy x2 Wert" from player's inventory
+					add 664 to {gardencoins::%player's uuid%}
+					add 664 to {_total}
+				while player's inventory contains carrot:
+					remove 1 carrot from player's inventory
+					add 334 to {gardencoins::%player's uuid%}
+					add 334 to {_total}
+			# Potatoes
+			if player's inventory contains potato:
+				while player's inventory contains potato:	
+					remove 1 potato from player's inventory
+					add 1600 to {gardencoins::%player's uuid%}
+					add 600 to {_total}
+			if player's inventory contains poisonous potato:
+				while player's inventory contains poisonous potato:
+					remove 1 poisonous potato from player's inventory
+					add 800 to {gardencoins::%player's uuid%}
+					add 800 to {_total}
+			# Beetroots
+			if player's inventory contains beetroot:
+				while player's inventory contains beetroot:
+					remove 1 beetroot from player's inventory
+					add 13000 to {gardencoins::%player's uuid%}
+					add 13000 to {_total}
+			# Wheat
+			if player's inventory contains wheat:
+				while player's inventory contains wheat:
+					remove 1 wheat from player's inventory
+					add 65000 to {gardencoins::%player's uuid%}
+					add 65000 to {_total}
+			# Pumpkin
+			if player's inventory contains pumpkin:
+				while player's inventory contains pumpkin:
+					remove 1 pumpkin from player's inventory
+					add 120000 to {gardencoins::%player's uuid%}
+					add 120000 to {_total}
+			# Melon
+			if player's inventory contains melon:
+				while player's inventory contains melon:
+					remove 1 melon from player's inventory
+					add 300000 to {gardencoins::%player's uuid%}
+					add 300000 to {_total}
+			# Spruce Sapling
+			if player's inventory contains spruce log:
+				while player's inventory contains spruce log:
+					remove 1 spruce log from player's inventory
+					add 500000 to {gardencoins::%player's uuid%}
+					add 500000 to {_total}
+			# Jungle Sapling
+			if player's inventory contains jungle log:
+				while player's inventory contains jungle log:
+					remove 1 jungle log from player's inventory
+					add 1000000 to {gardencoins::%player's uuid%}
+					add 1000000 to {_total}
+			if {_total} > 0:
+				if player's cytooxien lang is "en":
+					send "&aYou received &e%format({_total})% Gardencoins &afor your items!" to player
+				else if player's cytooxien lang is "ru":
+					send "&aВы получили &e%format({_total})% Gardencoins &aза свои предметы!" to player
+				else if player's cytooxien lang is "fr":
+					send "&aTu as reçu &e%format({_total})% Gardencoins &apour tes objets !" to player
+				else if player's cytooxien lang is "es":
+					send "&a¡Has recibido &e%format({_total})% Gardencoins &apor tus objetos!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&aDu host &e%format({_total})% Gardencoins &afür deine Sachn kriagt!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&aDu häsch &e%format({_total})% Gardencoins &afür dini Sache übercho!" to player
+				else if player's cytooxien lang is "nl":
+					send "&aJe hebt &e%format({_total})% Gardencoins &aontvangen voor je items!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&aDu hast so krass &e%format({_total})% Gardencoins &age-sheesh-t für deine Items bekommen! Poggers!" to player
+				else:
+					send "&aDu hast &e%format({_total})% Gardencoins &afür deine Items erhalten!" to player		
+			else:
+				if player's cytooxien lang is "en":
+					send "&cYou have no items to sell." to player
+				else if player's cytooxien lang is "ru":
+					send "&cУ вас нет предметов для продажи." to player
+				else if player's cytooxien lang is "fr":
+					send "&cTu n'as aucun objet à vendre." to player
+				else if player's cytooxien lang is "es":
+					send "&cNo tienes items para vender." to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cDu host nix zum vakaffa." to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cD'hast kei Sache zum verchaufe." to player
+				else if player's cytooxien lang is "nl":
+					send "&cJe hebt geen items om te verkopen." to player
+				else if player's cytooxien lang is "mxn":
+					send "&cBro, du hast einfach keine Items am Start, um die zu verkaufen. Traurig, aber wahr." to player
+				else:
+					send "&cDu hast keine Items zum Verkaufen." to player
+		else:
+			if player's cytooxien lang is "en":
+				send "&cUse /sell hand or /sell all" to player
+			else if player's cytooxien lang is "ru":
+				send "&cИспользуйте /sell hand или /sell all" to player
+			else if player's cytooxien lang is "fr":
+				send "&cUtilise /sell hand ou /sell all" to player
+			else if player's cytooxien lang is "es":
+				send "&cUsa /sell hand o /sell all" to player
+			else if player's cytooxien lang is "de-AT":
+				send "&cVawend /sell hand oda /sell all" to player
+			else if player's cytooxien lang is "de-CH":
+				send "&cNutz /sell hand oder /sell all" to player
+			else if player's cytooxien lang is "nl":
+				send "&cGebruik /sell hand of /sell all" to player
+			else if player's cytooxien lang is "mxn":
+				send "&cDigga, mach /sell hand oder /sell all, was ist daran so schwer? Cringe." to player
+			else:
+				send "&cNutze /sell hand oder /sell all" to player
+
+on tab complete for "/sell":
+	set tab completions for position 1 to "hand" and "all"
+on join:
+	if {sweetberries::%player's uuid%} is not set:
+		set {sweetberries::%player's uuid%} to 0
+	if {carrots::%player's uuid%} is not set:
+		set {carrots::%player's uuid%} to 0
+	if {potatoes::%player's uuid%} is not set:
+		set {potatoes::%player's uuid%} to 0
+	if {beetroots::%player's uuid%} is not set:
+		set {beetroots::%player's uuid%} to 0
+	if {wheat::%player's uuid%} is not set:	
+		set {wheat::%player's uuid%} to 0
+	if {pumpkin::%player's uuid%} is not set:
+		set {pumpkin::%player's uuid%} to 0
+	if {melon::%player's uuid%} is not set:
+		set {melon::%player's uuid%} to 0
+	if {spruce::%player's uuid%} is not set:
+		set {spruce::%player's uuid%} to 0
+	if {jungle::%player's uuid%} is not set:
+		set {jungle::%player's uuid%} to 0
+	if {gardencoins::%player's uuid%} is not set:
+		set {gardencoins::%player's uuid%} to 50
+
+#Sell Price = Kaufpreis * 1.3 - 1.5 bei Einmal
+function openseedinv(player: player):
+	open chest inventory with 6 rows named "&8[&aSamen&8]" to {_player}
+	if {sweetberries::%{_player}'s uuid%} > 0:
+		set slot 0 of {_player}'s current inventory to {sweetberries::%{_player}'s uuid%} of sweet berries named "&aSweet Berries" with lore "&7Auf Vorrat: %{sweetberries::%{_player}'s uuid%}%%nl%&aPreis: 50 Gardencoins"
+	else:
+		set slot 0 of {_player}'s current inventory to sweet berries named "&cSweet Berries" with lore "&7Ausverkauft!%nl%&aPreis: 50 Gardencoins"
+	if {carrots::%{_player}'s uuid%} > 0:
+		set slot 2 of {_player}'s current inventory to {carrots::%{_player}'s uuid%} of carrot named "&aKarotten" with lore "&7Auf Vorrat: %{carrots::%{_player}'s uuid%}%%nl%&aPreis: 500 Gardencoins"
+	else:
+		set slot 2 of {_player}'s current inventory to carrot named "&cKarotten" with lore "&7Ausverkauft!%nl%&aPreis: 500 Gardencoins"
+	if {potatoes::%{_player}'s uuid%} > 0:
+		set slot 4 of {_player}'s current inventory to {potatoes::%{_player}'s uuid%} of potato named "&aKartoffeln" with lore "&7Auf Vorrat: %{potatoes::%{_player}'s uuid%}%%nl%&aPreis: 2K Gardencoins"
+	else:
+		set slot 4 of {_player}'s current inventory to potato named "&cKartoffeln" with lore "&7Ausverkauft!%nl%&aPreis: 2K Gardencoins"
+	if {beetroots::%{_player}'s uuid%} > 0:
+		set slot 6 of {_player}'s current inventory to {beetroots::%{_player}'s uuid%} of beetroot named "&aRote Beete" with lore "&7Auf Vorrat: %{beetroots::%{_player}'s uuid%}%%nl%&aPreis: 10K Gardencoins"
+	else:
+		set slot 6 of {_player}'s current inventory to beetroot seeds named "&cRote Beete" with lore "&7Ausverkauft!%nl%&aPreis: 10K Gardencoins"
+	if {wheat::%{_player}'s uuid%} > 0:
+		set slot 8 of {_player}'s current inventory to {wheat::%{_player}'s uuid%} of wheat named "&aWeizen" with lore "&7Auf Vorrat: %{wheat::%{_player}'s uuid%}%%nl%&aPreis: 50K Gardencoins"
+	else:
+		set slot 8 of {_player}'s current inventory to wheat seeds named "&cWeizen" with lore "&7Ausverkauft!%nl%&aPreis: 50K Gardencoins"
+	if {pumpkin::%{_player}'s uuid%} > 0:
+		set slot 10 of {_player}'s current inventory to {pumpkin::%{_player}'s uuid%} of pumpkin named "&aKürbis" with lore "&7Auf Vorrat: %{pumpkin::%{_player}'s uuid%}%%nl%&aPreis: 200K Gardencoins"
+	else:
+		set slot 10 of {_player}'s current inventory to pumpkin seeds named "&cKürbis" with lore "&7Ausverkauft!%nl%&aPreis: 200K Gardencoins"
+	if {melon::%{_player}'s uuid%} > 0:
+		set slot 12 of {_player}'s current inventory to {melon::%{_player}'s uuid%} of melon named "&aMelone" with lore "&7Auf Vorrat: %{melon::%{_player}'s uuid%}%%nl%&aPreis: 500K Gardencoins"
+	else:
+		set slot 12 of {_player}'s current inventory to melon seeds named "&cMelone" with lore "&7Ausverkauft!%nl%&aPreis: 500K Gardencoins"
+	if {spruce::%{_player}'s uuid%} > 0:
+		set slot 14 of {_player}'s current inventory to {spruce::%{_player}'s uuid%} of spruce sapling named "&aFichte" with lore "&7Auf Vorrat: %{spruce::%{_player}'s uuid%}%%nl%&aPreis: 2M Gardencoins"
+	else:
+		set slot 14 of {_player}'s current inventory to spruce sapling named "&cFichte" with lore "&7Ausverkauft!%nl%&aPreis: 2M Gardencoins"
+	if {_player} has permission "booster":
+		if {jungle::%{_player}'s uuid%} > 0:
+			set slot 16 of {_player}'s current inventory to {jungle::%{_player}'s uuid%} of jungle sapling named "&aDschungel" with lore "&7Auf Vorrat: %{jungle::%{_player}'s uuid%}%%nl%&aPreis: 5M Gardencoins"
+		else:
+			set slot 16 of {_player}'s current inventory to jungle sapling named "&cDschungel" with lore "&7Ausverkauft!%nl%&aPreis: 5M Gardencoins"
+	else:
+		set slot 16 of {_player}'s current inventory to jungle sapling named "&cDschungel" with lore "&dNur für Booster%nl%&aPreis: 5M Gardencoins"
+	set slot 18 of {_player}'s current inventory to bone meal named "&aKnochenmehl" with lore "&7Preis: 4K Gardencoins"
+on inventory click:
+	if name of event-inventory is "&8[&aSamen&8]":
+		cancel event
+		if clicked slot is 0:
+			if {sweetberries::%player's uuid%} > 0:
+				if {gardencoins::%player's uuid%} >= 50:
+					remove 50 from {gardencoins::%player's uuid%}
+					remove 1 from {sweetberries::%player's uuid%}
+					give 1 sweet berries to player
+					if player's cytooxien lang is "en":
+						send "&aYou bought Sweet Berries!" to player
+					else if player's cytooxien lang is "ru":
+						send "&aВы купили Сладкие Ягоды!" to player
+					else if player's cytooxien lang is "fr":
+						send "&aTu as acheté des baies sucrées !" to player
+					else if player's cytooxien lang is "es":
+						send "&a¡Compraste Bayas Dulces!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&aDu host da Siassbeerl kauft!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&aDu häsch Süessbääri kauft!" to player
+					else if player's cytooxien lang is "nl":
+						send "&aJe hebt Zoete Bessen gekocht!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&aSheesh! Du hast dir Sweet Berries gegönnt, voll der Flex!" to player
+					else:
+						send "&aDu hast Dir Sweet Berries gekauft!" to player
+					openseedinv(player)
+				else:
+					if player's cytooxien lang is "en":
+						send "&cYou don't have enough Gardencoins!" to player
+					else if player's cytooxien lang is "ru":
+						send "&cУ вас недостаточно Gardencoins!" to player
+					else if player's cytooxien lang is "fr":
+						send "&cTu n'as pas assez de Gardencoins !" to player
+					else if player's cytooxien lang is "es":
+						send "&c¡No tienes suficientes Gardencoins!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&cDu host ned gnua Gardencoins!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&cDu häsch zwenig Gardecoins!" to player
+					else if player's cytooxien lang is "nl":
+						send "&cJe hebt niet genoeg Gardencoins!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&cUff, deine Gardencoins sind am Ende. Kein Geld, keine Ware, Bro." to player
+					else:
+						send "&cDu hast nicht genug Gardencoins!" to player
+			else:
+				if player's cytooxien lang is "en":
+					send "&cSweet Berries are sold out!" to player
+				else if player's cytooxien lang is "ru":
+					send "&cСладкие Ягоды распроданы!" to player
+				else if player's cytooxien lang is "fr":
+					send "&cLes baies sucrées sont épuisées !" to player
+				else if player's cytooxien lang is "es":
+					send "&c¡Las Bayas Dulces están agotadas!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cSiassbeerl san ausvakaft!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cSüessbääri si usverchauft!" to player
+				else if player's cytooxien lang is "nl":
+					send "&cZoete Bessen zijn uitverkocht!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&cUff, die Sweet Berries sind ausverkauft. F." to player
+				else:
+					send "&cSweet Berries sind ausverkauft!" to player
+		if clicked slot is 2:
+			if {carrots::%player's uuid%} > 0:
+				if {gardencoins::%player's uuid%} >= 500:
+					remove 500 from {gardencoins::%player's uuid%}
+					remove 1 from {carrots::%player's uuid%}
+					give 1 carrot to player
+					if player's cytooxien lang is "en":
+						send "&aYou bought Carrots!" to player
+					else if player's cytooxien lang is "ru":
+						send "&aВы купили Морковь!" to player
+					else if player's cytooxien lang is "fr":
+						send "&aTu as acheté des carottes !" to player
+					else if player's cytooxien lang is "es":
+						send "&a¡Compraste zanahorias!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&aDu host da Karottn kauft!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&aDu häsch Karotte kauft!" to player
+					else if player's cytooxien lang is "nl":
+						send "&aJe hebt Wortelen gekocht!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&aSheesh! Du hast dir Karotten gegönnt, voll der Flex!" to player
+					else:
+						send "&aDu hast Dir Karotten gekauft!" to player
+					openseedinv(player)
+				else:
+					if player's cytooxien lang is "en":
+						send "&cYou don't have enough Gardencoins!" to player
+					else if player's cytooxien lang is "ru":
+						send "&cУ вас недостаточно Gardencoins!" to player
+					else if player's cytooxien lang is "fr":
+						send "&cTu n'as pas assez de Gardencoins !" to player
+					else if player's cytooxien lang is "es":
+						send "&c¡No tienes suficientes Gardencoins!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&cDu host ned gnua Gardencoins!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&cDu häsch zwenig Gardecoins!" to player
+					else if player's cytooxien lang is "nl":
+						send "&cJe hebt niet genoeg Gardencoins!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&cUff, deine Gardencoins sind am Ende. Kein Geld, keine Ware, Bro." to player
+					else:
+						send "&cDu hast nicht genug Gardencoins!" to player
+
+			else:
+				if player's cytooxien lang is "en":
+					send "&cCarrots are sold out!" to player
+				else if player's cytooxien lang is "ru":
+					send "&cМорковь распродана!" to player
+				else if player's cytooxien lang is "fr":
+					send "&cLes carottes sont épuisées !" to player
+				else if player's cytooxien lang is "es":
+					send "&c¡Las zanahorias están agotadas!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cKarottn san ausvakaft!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cKarotte si usverchauft!" to player
+				else if player's cytooxien lang is "nl":
+					send "&cWortelen zijn uitverkocht!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&cUff, die Karotten sind ausverkauft. F." to player
+				else:
+					send "&cKarotten sind ausverkauft!" to player		
+		if clicked slot is 4:
+			if {potatoes::%player's uuid%} > 0:
+				if {gardencoins::%player's uuid%} >= 2000:
+					remove 2000 from {gardencoins::%player's uuid%}
+					remove 1 from {potatoes::%player's uuid%}
+					give 1 potato to player
+					if player's cytooxien lang is "en":
+						send "&aYou bought Potatoes!" to player
+					else if player's cytooxien lang is "ru":
+						send "&aВы купили Картофель!" to player
+					else if player's cytooxien lang is "fr":
+						send "&aTu as acheté des pommes de terre !" to player
+					else if player's cytooxien lang is "es":
+						send "&a¡Compraste patatas!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&aDu host da Erdäpfel kauft!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&aDu häsch Hardöpfel kauft!" to player
+					else if player's cytooxien lang is "nl":
+						send "&aJe hebt aardappelen gekocht!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&aSheesh! Du hast dir Kartoffeln gegönnt, voll der Flex!" to player
+					else:
+						send "&aDu hast Dir Kartoffeln gekauft!" to player
+					openseedinv(player)
+				else:
+					send "&cDu hast nicht genug Gardencoins!" to player
+			else:
+				if player's cytooxien lang is "en":
+					send "&cPotatoes are sold out!" to player
+				else if player's cytooxien lang is "ru":
+					send "&cКартофель распродан!" to player
+				else if player's cytooxien lang is "fr":
+					send "&cLes pommes de terre sont épuisées !" to player
+				else if player's cytooxien lang is "es":
+					send "&c¡Las patatas están agotadas!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cErdäpfel san ausvakaft!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cHardöpfel si usverchauft!" to player
+				else if player's cytooxien lang is "nl":
+					send "&cAardappelen zijn uitverkocht!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&cUff, die Kartoffeln sind ausverkauft. F." to player
+				else:
+					send "&cKartoffeln sind ausverkauft!" to player
+		if clicked slot is 6:
+			if {beetroots::%player's uuid%} > 0:
+				if {gardencoins::%player's uuid%} >= 10000:
+					remove 10000 from {gardencoins::%player's uuid%}
+					remove 1 from {beetroots::%player's uuid%}
+					give 1 beetroot seeds to player
+					if player's cytooxien lang is "en":
+						send "&aYou bought Beetroot Seeds!" to player
+					else if player's cytooxien lang is "ru":
+						send "&aВы купили Семена свёклы!" to player
+					else if player's cytooxien lang is "fr":
+						send "&aTu as acheté des graines de betterave !" to player
+					else if player's cytooxien lang is "es":
+						send "&a¡Compraste semillas de remolacha!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&aDu host da Rote Rüben Saamen kauft!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&aDu häsch Rüebele-Sämli kauft!" to player
+					else if player's cytooxien lang is "nl":
+						send "&aJe hebt bieten zaden gekocht!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&aSheesh! Du hast dir Rote Beete Samen gegönnt, voll der Flex!" to player
+					else:
+						send "&aDu hast Dir Rote Beete Samen gekauft!" to player
+					openseedinv(player)
+				else:
+					if player's cytooxien lang is "en":
+						send "&cYou don't have enough Gardencoins!" to player
+					else if player's cytooxien lang is "ru":
+						send "&cУ вас недостаточно Gardencoins!" to player
+					else if player's cytooxien lang is "fr":
+						send "&cTu n'as pas assez de Gardencoins !" to player
+					else if player's cytooxien lang is "es":
+						send "&c¡No tienes suficientes Gardencoins!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&cDu host ned gnua Gardencoins!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&cDu häsch zwenig Gardecoins!" to player
+					else if player's cytooxien lang is "nl":
+						send "&cJe hebt niet genoeg Gardencoins!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&cUff, deine Gardencoins sind am Ende. Kein Geld, keine Ware, Bro." to player
+					else:
+						send "&cDu hast nicht genug Gardencoins!" to player
+			else:
+				if player's cytooxien lang is "en":
+					send "&cBeetroot Seeds are sold out!" to player
+				else if player's cytooxien lang is "ru":
+					send "&cСемена свёклы распроданы!" to player
+				else if player's cytooxien lang is "fr":
+					send "&cLes graines de betterave sont épuisées !" to player
+				else if player's cytooxien lang is "es":
+					send "&c¡Las semillas de remolacha están agotadas!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cRote Rüben Saamen san ausvakaft!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cRüebele-Sämli si usverchauft!" to player
+				else if player's cytooxien lang is "nl":
+					send "&cBieten zaden zijn uitverkocht!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&cUff, die Rote Beete Samen sind ausverkauft. F." to player
+				else:
+					send "&cRote Beete Samen sind ausverkauft!" to player
+		if clicked slot is 8:
+			if {wheat::%player's uuid%} > 0:
+				if {gardencoins::%player's uuid%} >= 50000:
+					remove 50000 from {gardencoins::%player's uuid%}
+					remove 1 from {wheat::%player's uuid%}
+					give 1 wheat seeds to player
+					if player's cytooxien lang is "en":
+						send "&aYou bought Wheat Seeds!" to player
+					else if player's cytooxien lang is "ru":
+						send "&aВы купили Семена пшеницы!" to player
+					else if player's cytooxien lang is "fr":
+						send "&aTu as acheté des graines de blé !" to player
+					else if player's cytooxien lang is "es":
+						send "&a¡Compraste semillas de trigo!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&aDu host da Woaznsaamen kauft!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&aDu häsch Wäizesämli kauft!" to player
+					else if player's cytooxien lang is "nl":
+						send "&aJe hebt tarwezaden gekocht!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&aSheesh! Du hast dir Weizensamen gegönnt, voll der Flex!" to player
+					else:
+						send "&aDu hast Dir Weizensamen gekauft!" to player
+					openseedinv(player)
+				else:
+					if player's cytooxien lang is "en":
+						send "&cYou don't have enough Gardencoins!" to player
+					else if player's cytooxien lang is "ru":
+						send "&cУ вас недостаточно Gardencoins!" to player
+					else if player's cytooxien lang is "fr":
+						send "&cTu n'as pas assez de Gardencoins !" to player
+					else if player's cytooxien lang is "es":
+						send "&c¡No tienes suficientes Gardencoins!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&cDu host ned gnua Gardencoins!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&cDu häsch zwenig Gardecoins!" to player
+					else if player's cytooxien lang is "nl":
+						send "&cJe hebt niet genoeg Gardencoins!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&cUff, deine Gardencoins sind am Ende. Kein Geld, keine Ware, Bro." to player
+					else:
+						send "&cDu hast nicht genug Gardencoins!" to player
+			else:
+				if player's cytooxien lang is "en":
+					send "&cWheat Seeds are sold out!" to player
+				else if player's cytooxien lang is "ru":
+					send "&cСемена пшеницы распроданы!" to player
+				else if player's cytooxien lang is "fr":
+					send "&cLes graines de blé sont épuisées !" to player
+				else if player's cytooxien lang is "es":
+					send "&c¡Las semillas de trigo están agotadas!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cWoaznsaamen san ausvakaft!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cWäizesämli si usverchauft!" to player
+				else if player's cytooxien lang is "nl":
+					send "&cTarwezaden zijn uitverkocht!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&cUff, die Weizensamen sind ausverkauft. F." to player
+				else:
+					send "&cWeizensamen sind ausverkauft!" to player
+
+		if clicked slot is 10:
+			if {pumpkin::%player's uuid%} > 0:
+				if {gardencoins::%player's uuid%} >= 200000:
+					remove 200000 from {gardencoins::%player's uuid%}
+					remove 1 from {pumpkin::%player's uuid%}
+					give 1 pumpkin seeds to player
+					if player's cytooxien lang is "en":
+						send "&aYou bought Pumpkin Seeds!" to player
+					else if player's cytooxien lang is "ru":
+						send "&aВы купили Семена тыквы!" to player
+					else if player's cytooxien lang is "fr":
+						send "&aTu as acheté des graines de citrouille !" to player
+					else if player's cytooxien lang is "es":
+						send "&a¡Compraste semillas de calabaza!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&aDu host da Kürbissaamen kauft!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&aDu häsch Chüerbis-Sämli kauft!" to player
+					else if player's cytooxien lang is "nl":
+						send "&aJe hebt pompoenzaden gekocht!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&aSheesh! Du hast dir Kürbissamen gegönnt, voll der Flex!" to player
+					else:
+						send "&aDu hast Dir Kürbissamen gekauft!" to player
+					openseedinv(player)
+				else:
+					if player's cytooxien lang is "en":
+						send "&cYou don't have enough Gardencoins!" to player
+					else if player's cytooxien lang is "ru":
+						send "&cУ вас недостаточно Gardencoins!" to player
+					else if player's cytooxien lang is "fr":
+						send "&cTu n'as pas assez de Gardencoins !" to player
+					else if player's cytooxien lang is "es":
+						send "&c¡No tienes suficientes Gardencoins!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&cDu host ned gnua Gardencoins!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&cDu häsch zwenig Gardecoins!" to player
+					else if player's cytooxien lang is "nl":
+						send "&cJe hebt niet genoeg Gardencoins!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&cUff, deine Gardencoins sind am Ende. Kein Geld, keine Ware, Bro." to player
+					else:
+						send "&cDu hast nicht genug Gardencoins!" to player
+			else:
+				if player's cytooxien lang is "en":
+					send "&cPumpkin Seeds are sold out!" to player
+				else if player's cytooxien lang is "ru":
+					send "&cСемена тыквы распроданы!" to player
+				else if player's cytooxien lang is "fr":
+					send "&cLes graines de citrouille sont épuisées !" to player
+				else if player's cytooxien lang is "es":
+					send "&c¡Las semillas de calabaza están agotadas!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cKürbissaamen san ausvakaft!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cChüerbis-Sämli si usverchauft!" to player
+				else if player's cytooxien lang is "nl":
+					send "&cPompoenzaden zijn uitverkocht!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&cUff, die Kürbissamen sind ausverkauft. F." to player
+				else:
+					send "&cKürbissamen sind ausverkauft!" to player
+		if clicked slot is 12:
+			if {melon::%player's uuid%} > 0:
+				if {gardencoins::%player's uuid%} >= 500000:
+					remove 500000 from {gardencoins::%player's uuid%}
+					remove 1 from {melon::%player's uuid%}
+					give 1 melon seeds to player
+					if player's cytooxien lang is "en":
+						send "&aYou bought Melon Seeds!" to player
+					else if player's cytooxien lang is "ru":
+						send "&aВы купили Семена арбуза!" to player
+					else if player's cytooxien lang is "fr":
+						send "&aTu as acheté des graines de melon !" to player
+					else if player's cytooxien lang is "es":
+						send "&a¡Compraste semillas de melón!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&aDu host da Melonensamen kauft!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&aDu häsch Melone-Sämli kauft!" to player
+					else if player's cytooxien lang is "nl":
+						send "&aJe hebt meloenzaden gekocht!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&aSheesh! Du hast dir Melonensamen gegönnt, voll der Flex!" to player
+					else:
+						send "&aDu hast Dir Melonensamen gekauft!" to player
+					openseedinv(player)
+				else:
+					if player's cytooxien lang is "en":
+						send "&cYou don't have enough Gardencoins!" to player
+					else if player's cytooxien lang is "ru":
+						send "&cУ вас недостаточно Gardencoins!" to player
+					else if player's cytooxien lang is "fr":
+						send "&cTu n'as pas assez de Gardencoins !" to player
+					else if player's cytooxien lang is "es":
+						send "&c¡No tienes suficientes Gardencoins!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&cDu host ned gnua Gardencoins!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&cDu häsch zwenig Gardecoins!" to player
+					else if player's cytooxien lang is "nl":
+						send "&cJe hebt niet genoeg Gardencoins!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&cUff, deine Gardencoins sind am Ende. Kein Geld, keine Ware, Bro." to player
+					else:
+						send "&cDu hast nicht genug Gardencoins!" to player
+			else:
+				if player's cytooxien lang is "en":
+					send "&cMelon Seeds are sold out!" to player
+				else if player's cytooxien lang is "ru":
+					send "&cСемена арбуза распроданы!" to player
+				else if player's cytooxien lang is "fr":
+					send "&cLes graines de melon sont épuisées !" to player
+				else if player's cytooxien lang is "es":
+					send "&c¡Las semillas de melón están agotadas!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cMelonensamen san ausvakaft!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cMelone-Sämli si usverchauft!" to player
+				else if player's cytooxien lang is "nl":
+					send "&cMeloenzaden zijn uitverkocht!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&cUff, die Melonensamen sind ausverkauft. F." to player
+				else:
+					send "&cMelonensamen sind ausverkauft!" to player
+		if clicked slot is 14:
+			if {spruce::%player's uuid%} > 0:
+				if {gardencoins::%player's uuid%} >= 2000000:
+					remove 2000000 from {gardencoins::%player's uuid%}
+					remove 1 from {spruce::%player's uuid%}
+					give 1 spruce sapling to player
+					if player's cytooxien lang is "en":
+						send "&aYou bought Spruce Saplings!" to player
+					else if player's cytooxien lang is "ru":
+						send "&aВы купили Саженцы ели!" to player
+					else if player's cytooxien lang is "fr":
+						send "&aTu as acheté des pousses de sapin !" to player
+					else if player's cytooxien lang is "es":
+						send "&a¡Compraste retoños de abeto!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&aDu host da Fichtn-Setzling kauft!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&aDu häsch Fichte-Setzling kauft!" to player
+					else if player's cytooxien lang is "nl":
+						send "&aJe hebt vuren zaailingen gekocht!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&aSheesh! Du hast dir Fichten-Setzlinge gegönnt, voll der Flex!" to player
+					else:
+						send "&aDu hast Dir Fichten-Setzlinge gekauft!" to player
+					openseedinv(player)
+				else:
+					if player's cytooxien lang is "en":
+						send "&cYou don't have enough Gardencoins!" to player
+					else if player's cytooxien lang is "ru":
+						send "&cУ вас недостаточно Gardencoins!" to player
+					else if player's cytooxien lang is "fr":
+						send "&cTu n'as pas assez de Gardencoins !" to player
+					else if player's cytooxien lang is "es":
+						send "&c¡No tienes suficientes Gardencoins!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&cDu host ned gnua Gardencoins!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&cDu häsch zwenig Gardecoins!" to player
+					else if player's cytooxien lang is "nl":
+						send "&cJe hebt niet genoeg Gardencoins!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&cUff, deine Gardencoins sind am Ende. Kein Geld, keine Ware, Bro." to player
+					else:
+						send "&cDu hast nicht genug Gardencoins!" to player
+			else:
+				if player's cytooxien lang is "en":
+					send "&cSpruce Saplings are sold out!" to player
+				else if player's cytooxien lang is "ru":
+					send "&cСаженцы ели распроданы!" to player
+				else if player's cytooxien lang is "fr":
+					send "&cLes pousses de sapin sont épuisées !" to player
+				else if player's cytooxien lang is "es":
+					send "&c¡Los retoños de abeto están agotados!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cFichtn-Setzling san ausvakaft!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cFichte-Setzling si usverchauft!" to player
+				else if player's cytooxien lang is "nl":
+					send "&cVuren zaailingen zijn uitverkocht!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&cUff, die Fichten-Setzlinge sind ausverkauft. F." to player
+				else:
+					send "&cFichten-Setzlinge sind ausverkauft!" to player
+		if clicked slot is 16:
+			if player has permission "booster":
+				if {jungle::%player's uuid%} > 0:
+					if {gardencoins::%player's uuid%} >= 5000000:
+						remove 5000000 from {gardencoins::%player's uuid%}
+						remove 1 from {jungle::%player's uuid%}
+						give 1 jungle sapling to player
+						if player's cytooxien lang is "en":
+							send "&aYou bought Jungle Saplings!" to player
+						else if player's cytooxien lang is "ru":
+							send "&aВы купили Саженцы тропического дерева!" to player
+						else if player's cytooxien lang is "fr":
+							send "&aTu as acheté des pousses de jungle !" to player
+						else if player's cytooxien lang is "es":
+							send "&a¡Compraste retoños de jungla!" to player
+						else if player's cytooxien lang is "de-AT":
+							send "&aDu host da Dschungel-Setzling kauft!" to player
+						else if player's cytooxien lang is "de-CH":
+							send "&aDu häsch Dschungel-Setzling kauft!" to player
+						else if player's cytooxien lang is "nl":
+							send "&aJe hebt jungle zaailingen gekocht!" to player
+						else if player's cytooxien lang is "mxn":
+							send "&aSheesh! Du hast dir Dschungel-Setzlinge gegönnt, voll der Flex!" to player
+						else:
+							send "&aDu hast Dir Dschungel-Setzlinge gekauft!" to player
+						openseedinv(player)
+					else:
+						if player's cytooxien lang is "en":
+							send "&cYou don't have enough Gardencoins!" to player
+						else if player's cytooxien lang is "ru":
+							send "&cУ вас недостаточно Gardencoins!" to player
+						else if player's cytooxien lang is "fr":
+							send "&cTu n'as pas assez de Gardencoins !" to player
+						else if player's cytooxien lang is "es":
+							send "&c¡No tienes suficientes Gardencoins!" to player
+						else if player's cytooxien lang is "de-AT":
+							send "&cDu host ned gnua Gardencoins!" to player
+						else if player's cytooxien lang is "de-CH":
+							send "&cDu häsch zwenig Gardecoins!" to player
+						else if player's cytooxien lang is "nl":
+							send "&cJe hebt niet genoeg Gardencoins!" to player
+						else if player's cytooxien lang is "mxn":
+							send "&cUff, deine Gardencoins sind am Ende. Kein Geld, keine Ware, Bro." to player
+						else:
+							send "&cDu hast nicht genug Gardencoins!" to player
+				else:
+					if player's cytooxien lang is "en":
+						send "&cJungle Saplings are sold out!" to player
+					else if player's cytooxien lang is "ru":
+						send "&cСаженцы тропического дерева распроданы!" to player
+					else if player's cytooxien lang is "fr":
+						send "&cLes pousses de jungle sont épuisées !" to player
+					else if player's cytooxien lang is "es":
+						send "&c¡Los retoños de jungla están agotados!" to player
+					else if player's cytooxien lang is "de-AT":
+						send "&cDschungel-Setzling san ausvakaft!" to player
+					else if player's cytooxien lang is "de-CH":
+						send "&cDschungel-Setzling si usverchauft!" to player
+					else if player's cytooxien lang is "nl":
+						send "&cJungle zaailingen zijn uitverkocht!" to player
+					else if player's cytooxien lang is "mxn":
+						send "&cUff, die Dschungel-Setzlinge sind ausverkauft. F." to player
+					else:
+						send "&cDschungel-Setzlinge sind ausverkauft!" to player
+		if clicked slot is 18:
+			if {gardencoins::%player's uuid%} >= 4000:
+				remove 4000 from {gardencoins::%player's uuid%}
+				give 1 bone meal to player
+				if player's cytooxien lang is "en":
+					send "&aYou bought 1 Bone Meal!" to player
+				else if player's cytooxien lang is "ru":
+					send "&aВы купили 1 Костную муку!" to player
+				else if player's cytooxien lang is "fr":
+					send "&aTu as acheté 1 Poudre d'os !" to player
+				else if player's cytooxien lang is "es":
+					send "&a¡Compraste 1 Harina de huesos!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&aDu host 1 Knochenmehl kauft!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&aDu häsch 1 Chnochemehl kauft!" to player
+				else if player's cytooxien lang is "nl":
+					send "&aJe hebt 1 Bottenmeel gekocht!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&aSheesh! Du hast dir 1 Knochenmehl gegönnt, voll der Flex!" to player
+				else:
+					send "&aDu hast Dir 1 Knochenmehl gekauft!" to player
+				openseedinv(player)
+			else:
+				if player's cytooxien lang is "en":
+					send "&cYou don't have enough Gardencoins!" to player
+				else if player's cytooxien lang is "ru":
+					send "&cУ вас недостаточно Gardencoins!" to player
+				else if player's cytooxien lang is "fr":
+					send "&cTu n'as pas assez de Gardencoins !" to player
+				else if player's cytooxien lang is "es":
+					send "&c¡No tienes suficientes Gardencoins!" to player
+				else if player's cytooxien lang is "de-AT":
+					send "&cDu host ned gnua Gardencoins!" to player
+				else if player's cytooxien lang is "de-CH":
+					send "&cDu häsch zwenig Gardecoins!" to player
+				else if player's cytooxien lang is "nl":
+					send "&cJe hebt niet genoeg Gardencoins!" to player
+				else if player's cytooxien lang is "mxn":
+					send "&cUff, deine Gardencoins sind am Ende. Kein Geld, keine Ware, Bro." to player
+				else:
+					send "&cDu hast nicht genug Gardencoins!" to player
+on mine:
+	event-block is melon stem or pumpkin stem
+	cancel drops
+on mine:
+	event-block is beetroots or wheat
+	cancel drops
+	set {_d::*} to drops of event-block
+	loop {_d::*}:
+		if "%loop-value%" contains "beetroot seed" or "wheat seeds":
+			set {_æ} to 0
+		else:
+			give loop-value to player
+on mine:
+	event-block is melon
+	cancel drops
+	give 1 melon to player
+on mine:
+	event-block is spruce leaves or jungle leaves
+	cancel event
+	cancel drops
+	set block at event-location to air
+on right click with bone meal:
+	if player's target block is farmland or grass block or podzol or dark oak slab:
+		cancel event
+on mine:
+	if event-block is melon or pumpkin or sweet berry bush:
+		set block below event-block to farmland[moisture=7]
+on leaves decay:
+	cancel event
+	loop all blocks in radius 5 around event-location:
+		block at location of loop-value is spruce leaves or jungle leaves
+		set block at loop-value to air
+on right click with sweet berries:
+	if player's target block is grass block or podzol or dark oak slab:
+		cancel event
+		if player's cytooxien lang is "en":
+			send "&cYou can only plant Sweet Berries on farmland!" to player
+		else if player's cytooxien lang is "ru":
+			send "&cВы можете сажать Сладкие Ягоды только на пашне!" to player
+		else if player's cytooxien lang is "fr":
+			send "&cTu ne peux planter les baies sucrées que sur des terres agricoles !" to player
+		else if player's cytooxien lang is "es":
+			send "&c¡Solo puedes plantar Bayas Dulces en tierra de cultivo!" to player
+		else if player's cytooxien lang is "de-AT":
+			send "&cSiassbeerl kannst nur auf Ackerland pflanzen!" to player
+		else if player's cytooxien lang is "de-CH":
+			send "&cSüessbääri chasch nur uf Ackerland pflanze!" to player
+		else if player's cytooxien lang is "nl":
+			send "&cJe kunt Zoete Bessen alleen op akkerland planten!" to player
+		else if player's cytooxien lang is "mxn":
+			send "&cBro, du kannst Sweet Berries nur auf Farmland pflanzen. Merk dir das!" to player
+		else:
+			send "&cDu kannst Süßbeeren nur auf Farmland pflanzen!" to player
+function seedinvreset():
+	set {seedinvreset} to now
+	loop all players:
+		set {sweetberries::%loop-player's uuid%} to 0
+		loop 10 times:	
+			chance of 70%:
+				add 1 to {sweetberries::%loop-player's uuid%}
+		set {carrots::%loop-player's uuid%} to 0
+		loop 9 times:
+			chance of 50%:
+				add 1 to {carrots::%loop-player's uuid%}
+		set {potatoes::%loop-player's uuid%} to 0
+		loop 5 times:
+			chance of 40%:
+				add 1 to {potatoes::%loop-player's uuid%}
+		set {beetroots::%loop-player's uuid%} to 0
+		loop 4 times:
+			chance of 30%:
+				add 1 to {beetroots::%loop-player's uuid%}
+		set {wheat::%loop-player's uuid%} to 0
+		loop 4 times:
+			chance of 25%:
+				add 1 to {wheat::%loop-player's uuid%}
+		set {pumpkin::%loop-player's uuid%} to 0
+		loop 5 times:
+			chance of 15%:
+				add 1 to {pumpkin::%loop-player's uuid%}
+		set {melon::%loop-player's uuid%} to 0
+		loop 3 times:
+			chance of 10%:
+				add 1 to {melon::%loop-player's uuid%}
+		set {spruce::%loop-player's uuid%} to 0
+		chance of 10%:
+			add 1 to {spruce::%loop-player's uuid%}
+		loop 2 times:
+			loop-player has permission "booster"
+			chance of 5%:
+				add 1 to {jungle::%loop-player's uuid%}
+		if name of loop-player's current inventory is "&8[&aSamen&8]":
+			openseedinv(loop-player)
+		if loop-player's cytooxien lang is "en":
+			send "&aThe Seed Shop has been restocked!" to loop-player
+		else if loop-player's cytooxien lang is "ru":
+			send "&aМагазин семян пополнил свои запасы!" to loop-player
+		else if loop-player's cytooxien lang is "fr":
+			send  "&aLe magasin de graines a été réapprovisionné !" to loop-player
+		else if loop-player's cytooxien lang is "es":
+			send  "&a¡La tienda de semillas ha sido reabastecida!" to loop-player
+		else if loop-player's cytooxien lang is "de-AT":
+			send  "&aDa Saamenlodn is wieda aufgfüllt worn!" to loop-player
+		else if loop-player's cytooxien lang is "de-CH":
+			send  "&aDe Sämli-Lade isch wieder ufgfüllt worde!" to loop-player
+		else if loop-player's cytooxien lang is "nl":
+			send  "&aDe zadenwinkel is aangevuld!" to loop-player
+		else if loop-player's cytooxien lang is "mxn":
+			send  "&aYo, der Seed Shop ist wieder voll mit neuem Stuff! Go go go!" to loop-player
+		else:
+			send  "&aDer Seed Shop wurde gefüllt!" to loop-player
+on right click with spruce sapling or jungle sapling:
+	if player's target block is not podzol:
+		cancel event
+		send "&cDu kannst Bäume nur auf Podzol pflanzen!" to player
+on block trample:
+	cancel event
+on right click:
+	player's tool is diamond hoe
+	if player's target block is farmland:
+		set block at location of player's target block to  farmland[moisture=7]
+		
+on moisture change:
+	cancel event
+	set event-block to farmland[moisture=7]
+
+on craft:
+	cancel event
+		
+
+on left click:
+	distance between player and {growagardenisland::%player's uuid%} > 400
+	cancel event
+on right click:
+	distance between player and {growagardenisland::%player's uuid%} > 400
+	cancel event
+on mine:
+	player's name is not "XNeedNoName"
+	distance between player and {growagardenisland::%player's uuid%} > 400
+	cancel event
+on drop:
+	player's name is not "XNeedNoName"
+	distance between player and {growagardenisland::%player's uuid%} > 400
+	cancel event
+on pick up:
+	player's name is not "XNeedNoName"
+	distance between player and {growagardenisland::%player's uuid%} > 400
+	cancel event
+command /island [<offlineplayer>]:
+	trigger:
+		if arg-1 is set:
+			teleport player to {growagardenisland::%arg-1's uuid%}
+		else:
+			teleport player to {growagardenisland::%player's uuid%}
+on right click with diamond hoe:
+	block below player's target block is not water
+	player's target block is not farmland
+	cancel event
+
+command /setgardencoins <offlineplayer> <number>:
+	permission: op
+	trigger:
+		set {gardencoins::%arg-1's uuid%} to arg-2
+
+on hunger meter change:
+	cancel event
+	set player's food level to 10

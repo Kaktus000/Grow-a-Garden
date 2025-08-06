@@ -1,0 +1,9 @@
+on break of sweet berry bush:
+	{gardencoins::%player's uuid%} < 50
+	cancel event
+	send "&cSicher Dass du den Bush abbauen willst wenn ja mach /deletesweetberrybushinfrontofme"
+command /deletesweetberrybushinfrontofme:
+	trigger:
+		distance between player and {growagardenisland::%player's uuid%} < 400
+		player's target block is sweet berry bush
+		set block at location of player's target block to air

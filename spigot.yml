@@ -1,0 +1,184 @@
+# This is the Spigot configuration file for Paper.
+# As you can see, there's tons to configure. Some options may impact gameplay, so use
+# with caution, and make sure you know what each option does before configuring.
+#
+# If you need help with the configuration or have any questions related to Paper,
+# join us in our Discord or check the docs page.
+#
+# File Reference: https://docs.papermc.io/paper/reference/spigot-configuration/
+# Docs: https://docs.papermc.io/
+# Discord: https://discord.gg/papermc
+# Website: https://papermc.io/
+
+advancements:
+  disable-saving: false
+  disabled:
+  - minecraft:story/disabled
+commands:
+  enable-spam-exclusions: false
+  log: true
+  replace-commands:
+  - setblock
+  - summon
+  - testforblock
+  - tellraw
+  send-namespaced: true
+  silent-commandblock-console: false
+  spam-exclusions:
+  - /skill
+  tab-complete: 0
+config-version: 12
+messages:
+  outdated-client: Outdated client! Please use {0}
+  outdated-server: Outdated server! I'm still on {0}
+  restart: Server is restarting
+  server-full: The server is full!
+  unknown-command: Unknown command. Type "/help" for help.
+  whitelist: You are not whitelisted on this server!
+players:
+  disable-saving: false
+settings:
+  attribute:
+    attackDamage:
+      max: 2048
+    maxAbsorption:
+      max: 2048
+    maxHealth:
+      max: 1024
+    movementSpeed:
+      max: 1024
+  bungeecord: true
+  debug: false
+  log-named-deaths: true
+  log-villager-deaths: true
+  moved-too-quickly-multiplier: 10
+  moved-wrongly-threshold: 0.0625
+  netty-threads: 4
+  player-shuffle: 0
+  restart-on-crash: true
+  restart-script: ./start.sh
+  sample-count: 12
+  save-user-cache-on-stop-only: false
+  timeout-time: 60
+  user-cache-size: 1000
+stats:
+  disable-saving: false
+  forced-stats: {}
+world-settings:
+  default:
+    arrow-despawn-rate: 300
+    below-zero-generation-in-existing-chunks: true
+    dragon-death-sound-radius: 0
+    enable-zombie-pigmen-portal-spawns: true
+    end-portal-sound-radius: 0
+    entity-activation-range:
+      animals: 32
+      flying-monsters: 32
+      ignore-spectators: false
+      misc: 16
+      monsters: 32
+      raiders: 64
+      tick-inactive-villagers: false
+      villagers: 32
+      villagers-active-for-panic: true
+      villagers-work-immunity-after: 100
+      villagers-work-immunity-for: 20
+      wake-up-inactive:
+        animals-every: 1200
+        animals-for: 100
+        animals-max-per-tick: 4
+        flying-monsters-every: 200
+        flying-monsters-for: 100
+        flying-monsters-max-per-tick: 8
+        monsters-every: 400
+        monsters-for: 100
+        monsters-max-per-tick: 8
+        villagers-every: 600
+        villagers-for: 100
+        villagers-max-per-tick: 4
+      water: 16
+    entity-tracking-range:
+      animals: 96
+      display: 128
+      misc: 96
+      monsters: 96
+      other: 64
+      players: 128
+    growth:
+      bamboo-modifier: 100
+      beetroot-modifier: 100
+      cactus-modifier: 100
+      cane-modifier: 100
+      carrot-modifier: 100
+      cavevines-modifier: 100
+      cocoa-modifier: 100
+      glowberry-modifier: 100
+      kelp-modifier: 100
+      melon-modifier: 100
+      mushroom-modifier: 100
+      netherwart-modifier: 100
+      pitcherplant-modifier: 100
+      potato-modifier: 100
+      pumpkin-modifier: 100
+      sapling-modifier: 100
+      sweetberry-modifier: 100
+      torchflower-modifier: 100
+      twistingvines-modifier: 100
+      vine-modifier: 100
+      weepingvines-modifier: 100
+      wheat-modifier: 100
+    hanging-tick-frequency: 100
+    hopper-amount: 1
+    hopper-can-load-chunks: false
+    hunger:
+      combat-exhaustion: 0.1
+      jump-sprint-exhaustion: 0.2
+      jump-walk-exhaustion: 0.05
+      other-multiplier: 0
+      regen-exhaustion: 6
+      sprint-multiplier: 0.1
+      swim-multiplier: 0.01
+    item-despawn-rate: 6000
+    max-tick-time:
+      entity: 50
+      tile: 50
+    max-tnt-per-tick: 100
+    merge-radius:
+      exp: 6
+      item: 4
+    mob-spawn-range: 6
+    nerf-spawner-mobs: false
+    seed-ancientcity: 2.0083232E7
+    seed-buriedtreasure: 1.038732E7
+    seed-desert: 1.4357617E7
+    seed-endcity: 1.0387313E7
+    seed-fossil: 1.4357921E7
+    seed-igloo: 1.4357618E7
+    seed-jungle: 1.4357619E7
+    seed-mansion: 1.0387319E7
+    seed-mineshaft: default
+    seed-monument: 1.0387313E7
+    seed-nether: 3.0084232E7
+    seed-ocean: 1.4357621E7
+    seed-outpost: 1.65745296E8
+    seed-portal: 3.4222645E7
+    seed-shipwreck: 1.65745295E8
+    seed-slime: 9.87234911E8
+    seed-stronghold: default
+    seed-swamp: 1.435762E7
+    seed-trailruins: 8.3469867E7
+    seed-trialchambers: 9.4251327E7
+    seed-village: 1.0387312E7
+    simulation-distance: default
+    thunder-chance: 100000
+    ticks-per:
+      hopper-check: 1
+      hopper-transfer: 8
+    trident-despawn-rate: 300
+    unload-frozen-chunks: false
+    verbose: false
+    view-distance: default
+    wither-spawn-sound-radius: 0
+    zombie-aggressive-towards-villager: true
+  worldeditregentempworld:
+    verbose: false

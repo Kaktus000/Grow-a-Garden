@@ -1,0 +1,13 @@
+on join:
+	loop all players:
+		if loop-player has permission "booster":
+			add loop-player to {boosters::*}
+			wait 1 tick
+every 5 seconds:
+	if {boosters::*} is set:
+		loop {boosters::*}:
+			load chunk at {growagardenisland::%loop-value%} 
+			load chunk at location x-coord of {growagardenisland::%loop-value%}, y-coordinate of {growagardenisland::%loop-value%}, z-coordinate of {growagardenisland::%loop-value%} + 5 in world "Grow_a_Garden" 
+			load chunk at location x-coord of {growagardenisland::%loop-value%} - 5, y-coordinate of {growagardenisland::%loop-value%}, z-coordinate of {growagardenisland::%loop-value%}  in world "Grow_a_Garden" 
+			load chunk at location x-coord of {growagardenisland::%loop-value%} - 5, y-coordinate of {growagardenisland::%loop-value%}, z-coordinate of {growagardenisland::%loop-value%} + 5 in world "Grow_a_Garden" 
+			wait 1 tick

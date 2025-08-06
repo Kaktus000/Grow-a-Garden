@@ -1,0 +1,22 @@
+command /mylang:
+	permission: op
+	trigger:
+		send "%player's cytooxien lang%" to player
+
+on join:
+	if player's cytooxien lang is "mxn":
+		send "&cIn diesem Remel sind noch nicht alle Textchen deiner Redeweise übersetzt manches wird auf Deutsch angezeigt werden." to player
+	if player's cytooxien lang is "en":
+		send "&cOn this Realm not all Texts are translated to your language yet. Some will be show in German." to player
+	if player's cytooxien lang is "ru":
+		send "&cВ этом мире пока не все тексты переведены на ваш язык. Некоторые будут отображаться на немецком." to player
+	if player's cytooxien lang is "fr":
+		send "&cSur ce royaume, tous les textes ne sont pas encore traduits dans votre langue. Certains seront disponibles en allemand." to player
+	if player's cytooxien lang is "es":
+		send "&cEn este reino, aún no todos los textos están traducidos a tu idioma. Algunos se mostrarán en alemán." to player
+	if player's cytooxien lang is "de-AT":
+		send "&cIn diesem Reich san ned all Texte in eure Sprache übersetzt. Einige werden auf Deutsch angezeigt." to player
+	if player's cytooxien lang is "de-CH":
+		send "&cI däm Realm si no nid aui Texte i Ihri Sproch übersetzt. Einigi wärde uf Dütsch azeigt." to player
+	if player's cytooxien lang is "nl":
+		send "&cOp dit domein zijn nog niet alle teksten in jouw taal vertaald. Sommige worden in het Duits weergegeven." to player

@@ -1,0 +1,3 @@
+on chat:
+	if player has permission "booster":
+		replace all "&" with "§" in message

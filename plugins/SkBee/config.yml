@@ -1,0 +1,58 @@
+bound-events:
+  entity-dismount: true
+  entity-mount: true
+  player-bed-enter: true
+  player-bed-leave: true
+  player-move: true
+  player-respawn: true
+  player-teleport: true
+  vehicle-destroy: true
+  vehicle-enter: true
+  vehicle-exit: true
+  vehicle-move: true
+elements:
+  advancement: true
+  auto-load-custom-worlds: true
+  boss-bar: true
+  bound: true
+  chunk-generator: true
+  damage-source: true
+  display-entity: true
+  fastboard: true
+  fishing: true
+  game-event: true
+  item-component: true
+  nbt: true
+  particle: true
+  property: true
+  raytrace: true
+  recipe: true
+  scoreboard: true
+  statistic: true
+  structure: true
+  switch-case: true
+  text-component: true
+  tick-manager: true
+  villager: true
+  virtual-furnace: false
+  world-border: true
+  world-creator: true
+nbt-events:
+  block-break: true
+  block-explode: true
+  entity-change-block: true
+  entity-explode: true
+  piston-extend: true
+runtime:
+  disable-errors: false
+  disable-warnings: false
+settings:
+  allow-unsafe-nbt-operations: false
+  debug: false
+  fastboard-reverse-lines: false
+  update-checker:
+    async: false
+    enabled: false
+  use-paper-schedulers: false
+special:
+  on-the-flip-side: true

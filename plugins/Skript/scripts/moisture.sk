@@ -1,0 +1,3 @@
+on moisture change:
+	cancel event
+	set event-block to farmland[moisture=7]

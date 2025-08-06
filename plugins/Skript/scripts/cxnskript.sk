@@ -1,0 +1,5 @@
+every second:
+	if the realm's description is "&6Inspiriert von Roblox":
+		set the realm's description to "&6Inselerweiterungs Update"
+	else:
+		set the realm's description to "&6Inspiriert von Roblox"

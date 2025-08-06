@@ -1,0 +1,17 @@
+command /alingmobs:
+	permission: op
+	trigger:
+		loop all block displays in radius 20 around player:
+			set yaw of loop-entity to 90
+		loop all item displays in radius 20 around player:
+			set yaw of loop-entity to 90
+		loop all villagers in radius 2 around player:
+			set yaw of loop-entity to 90
+			set loop-entity's display name to "&2Verkaufen"
+            
+on damage:
+	if victim is a villager:
+		cancel event
+        
+on right click on villager:
+	cancel event

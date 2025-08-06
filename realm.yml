@@ -1,0 +1,10 @@
+HandleChat: true
+LoadPredefinedPlugins: 
+- Skript
+- SkBee
+- FastAsyncWorldEdit
+- PacketEvents
+- Vulcan
+DisplaySystem: 
+   showGroups: true
+SendJoinHelp: true

@@ -1,0 +1,41 @@
+every second:
+	if weather in "Grow_a_Garden" is rain:
+		loop all players:
+			loop all blocks in radius 5 around loop-player:
+				if {rain::%location of loop-block%} is not set:
+					set {rain::%location of loop-block%} to 0
+				add 1 to {rain::%location of loop-block%}
+	if weather in "Grow_a_Garden" is thunder:
+		loop all players:
+			loop all blocks in radius 5 around loop-player:
+				if {thunder::%location of loop-block%} is not set:
+					set {thunder::%location of loop-block%} to 0
+				add 1 to {thunder::%location of loop-block%}
+on mine:
+	event-block is carrots
+	if {thunder::%event-location%} > 40:
+		chance of 50%:
+			set {_d::*} to drops of event-block
+			cancel drops
+			wait 1 tick
+			block at event-location is air
+			loop {_d::*}:
+				set {_i} to loop-value
+				add "&aThunder x10 Wert" to lore of {_i}
+				drop {_i} at player
+		set {thunder::%event-location%} to 0
+	if {rain::%event-location%} > 300:
+		chance of 50%:
+			set {_d::*} to drops of event-block
+			cancel drops
+			wait 1 tick
+			block at event-location is air
+			loop {_d::*}:
+				drop loop-value with lore "Rainy x2" at player
+	set {rain::%event-location%} to 0
+
+on player move:
+	biome at the player is not plains
+	loop blocks in chunk at player:
+		set biome of loop-block to plains
+	refresh chunk at player

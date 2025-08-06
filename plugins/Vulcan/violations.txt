@@ -1,0 +1,23 @@
+[08-04-2025] [16:23:07] Ernst123 failed Flight (Type D) [VL: 2] [Ping: 15] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=-0.07544406518948676 ticks=38 delay=54 tp=328 vel=44882
+[08-04-2025] [16:23:08] Ernst123 failed Flight (Type D) [VL: 4] [Ping: 15] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=-0.07544406518948676 ticks=62 delay=51 tp=352 vel=44906
+[08-04-2025] [16:33:09] reyvadin15 failed Flight *(Type F)* [VL: 2] [Ping: 122] [TPS: 20] [Version: 1.21.6] [Client: Unresolved] dY=-0.07840000152587834 ldY=-0.0588000011444052 pre=-0.13602400376891705 diff=0.05762400224303871 tol=1.0E-8 tick=5 tp=225
+[08-04-2025] [17:19:47] Ernst123 failed Flight (Type D) [VL: 2] [Ping: 15] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=-0.07544406518948676 ticks=37 delay=48 tp=1132 vel=9715
+[08-04-2025] [17:19:48] Ernst123 failed Flight (Type D) [VL: 4] [Ping: 15] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=-0.07544406518948676 ticks=61 delay=49 tp=1156 vel=9739
+[08-04-2025] [17:19:50] Ernst123 failed Flight (Type D) [VL: 6] [Ping: 15] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=-0.07544406518948676 ticks=85 delay=48 tp=1180 vel=9763
+[08-04-2025] [17:19:51] Ernst123 failed Flight (Type D) [VL: 8] [Ping: 15] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=-0.07544406518948676 ticks=109 delay=48 tp=1204 vel=9787
+[08-04-2025] [17:19:52] Ernst123 failed Flight (Type D) [VL: 10] [Ping: 15] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=-0.07544406518948676 ticks=133 delay=48 tp=1228 vel=9811
+[08-04-2025] [19:28:31] Ernst123 failed Flight (Type D) [VL: 2] [Ping: 521] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.41999998688697815 ticks=26 delay=1 tp=858 vel=3591
+[08-04-2025] [19:28:31] Ernst123 failed Flight (Type D) [VL: 4] [Ping: 521] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=-0.07544406518948676 ticks=32 delay=0 tp=864 vel=3597
+[08-04-2025] [19:28:33] Ernst123 failed Flight (Type D) [VL: 6] [Ping: 472] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.08307781780646906 ticks=77 delay=1 tp=909 vel=3642
+[08-04-2025] [19:28:34] Ernst123 failed Flight (Type D) [VL: 8] [Ping: 534] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.1647732818260721 ticks=85 delay=269 tp=917 vel=3650
+[08-04-2025] [19:28:36] Ernst123 failed Flight (Type D) [VL: 10] [Ping: 496] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.003016261509046103 ticks=31 delay=1 tp=966 vel=3699
+[08-04-2025] [19:28:37] Ernst123 failed Flight (Type D) [VL: 12] [Ping: 657] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.08307781780646906 ticks=39 delay=1 tp=974 vel=3707
+[08-04-2025] [19:28:37] Ernst123 failed Flight (Type D) [VL: 14] [Ping: 657] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.1647732818260721 ticks=47 delay=0 tp=982 vel=3715
+[08-04-2025] [19:28:37] Ernst123 failed Flight (Type D) [VL: 16] [Ping: 657] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.24813599859093927 ticks=55 delay=1 tp=990 vel=3723
+[08-04-2025] [19:28:38] Ernst123 failed Flight (Type D) [VL: 18] [Ping: 657] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.33319999363422426 ticks=63 delay=67 tp=998 vel=3731
+[08-04-2025] [19:28:38] Ernst123 failed Flight (Type D) [VL: 20] [Ping: 906] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.41999998688697815 ticks=71 delay=97 tp=1006 vel=3739
+[08-04-2025] [19:28:39] Ernst123 failed Flight (Type D) [VL: 22] [Ping: 810] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=-0.07544406518948676 ticks=77 delay=0 tp=1012 vel=3745
+[08-04-2025] [19:28:41] Ernst123 failed Flight (Type D) [VL: 24] [Ping: 810] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.003016261509046103 ticks=29 delay=224 tp=1059 vel=3792
+[08-04-2025] [19:28:42] Ernst123 failed Flight (Type D) [VL: 26] [Ping: 1326] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.08307781780646906 ticks=37 delay=105 tp=1067 vel=3800
+[08-04-2025] [19:28:42] Ernst123 failed Flight (Type D) [VL: 28] [Ping: 1222] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] deltaY=0.1647732818260721 ticks=45 delay=134 tp=1075 vel=3808
+[08-04-2025] [19:28:42] Ernst123 failed Improbable (Type B) [VL: 1] [Ping: 1222] [TPS: 20] [Version: 1.21.4] [Client: Unresolved] movementViolations=31

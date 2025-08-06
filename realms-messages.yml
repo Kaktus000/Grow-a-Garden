@@ -1,0 +1,21 @@
+Messages: 
+   playerJoin: 
+      de-AT: §e%player% §ehat den Realm betreten
+      de: §e%player% §ehat den Realm betreten
+      mxn: §e%player% §ehat den Realm betreten
+      ru: §e%player% §ehat den Realm betreten
+      en: §e%player% §ehat den Realm betreten
+      fr: §e%player% §ehat den Realm betreten
+      es: §e%player% §ehat den Realm betreten
+      de-CH: §e%player% §ehat den Realm betreten
+      nl: §e%player% §ehat den Realm betreten
+   playerLeft: 
+      de-AT: §e%player% §ehat den Realm verlassen
+      de: §e%player% §ehat den Realm verlassen
+      mxn: §e%player% §ehat den Realm verlassen
+      ru: §e%player% §ehat den Realm verlassen
+      en: §e%player% §ehat den Realm verlassen
+      fr: §e%player% §ehat den Realm verlassen
+      es: §e%player% §ehat den Realm verlassen
+      de-CH: §e%player% §ehat den Realm verlassen
+      nl: §e%player% §ehat den Realm verlassen

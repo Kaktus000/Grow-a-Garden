@@ -1,0 +1,65 @@
+command /leaderboards:
+	trigger:
+		loop {gardencoins::*}:
+			set {_list::%loop-index%} to loop-value
+		open chest inventory named "Leaderboard" to player
+		set {_chestindex} to 0
+		set {_a} to 0
+		loop 27 times:
+			{_list::*} is set
+			set {_highest} to -1
+			loop {_list::*}:
+				if loop-value-2 > {_highest}:
+					if {nameofuuid::%loop-index%} is not set:
+						set {nameofuuid::%loop-index%} to (loop-index parsed as offlineplayer)
+						set {nameofuuid::%loop-index%} to {nameofuuid::%loop-index%}'s name
+						wait 21 ticks
+					if {skullofuuid::%loop-index%} is not set:
+						set {skullofuuid::%loop-index%} to skull of (loop-index parsed as offlineplayer)
+						wait 21 ticks
+					set name of {skullofuuid::%loop-index%} to "&3%{nameofuuid::%loop-index%}%"
+					set lore of {skullofuuid::%loop-index%} to "&6Gardencoins: %format(loop-value-2)%"
+					set {_highestplayer} to loop-index
+					if {_beforehighestplayer} is set:
+						if {_highestplayer} is {_beforehighestplayer}:
+							exit 2 loops
+							stop
+					set {_beforehighestplayer} to {_highestplayer}
+					set {_highest} to loop-value-2
+					if {_a} = 10:
+						wait 1 tick
+						set {_a} to 0
+					else:
+						add 1 to {_a}
+			delete {_list::%{_highestplayer}%}
+			if name of player's current inventory contains "Leaderboard":
+				if {_list::*} is not set:		
+					stop			
+				set slot {_chestindex} of player's current inventory to ({_chestindex} + 1) of {skullofuuid::%{_highestplayer}%}
+			add 1 to {_chestindex}
+on join:
+	set {allplayernames::%player's uuid%} to player's name
+
+command /wipecache:
+	permission: op
+	trigger:
+		delete {nameofuuid::*}
+		delete {skullofuuid::*}
+		send "&cCache wiped!" to player
+
+command /deletemygardencoins:
+	permission: op
+	trigger:
+		if {gardencoins::%player's uuid%} is set:
+			delete {gardencoins::%player's uuid%}
+			send "&cYour Gardencoins have been deleted!" to player
+		else:
+			send "&cYou have no Gardencoins to delete!" to player
+on inventory click:
+	if name of event-inventory contains "Leaderboard":
+		cancel event
+
+command /invsee <player>:
+	permission: op
+	trigger:
+		open arg-1's inventory to player

@@ -1,0 +1,82 @@
+command /setgrowagardenmappoint <number>:
+	permission: op
+	trigger:
+		set {growagardenmappoint::%arg-1%} to location of player
+		send "Set Grow a Garden map point %arg-1% to your location."
+
+command /savegrowagardenmap:
+	permission: op
+	trigger:
+		send "Saving growagarden map..."
+		set {_s} to structure named "growagardenmap"
+		fill structure {_s} between {growagardenmappoint::1} and {growagardenmappoint::2}
+		save structure {_s}
+
+function loadgrowagardenmap(x: number):
+	set {_s} to structure named "growagardenmap"
+	place structure {_s} at location {_x}, 64, 1000 in world "Grow_a_Garden"
+
+command /setspawn:
+	permission: op
+	trigger:
+		set {spawn} to location of player
+
+on join:
+	set player's gamemode to survival
+	if {growagardenisland::%player's uuid%} is set:
+		teleport player to {growagardenisland::%player's uuid%}
+	else:
+		teleport player to {spawn}
+		broadcast "&8[&aGrow a Garden&8]&6 %player's name% ist neu hier!"
+		send "&aGeneriere Deine Insel..." to player
+		gengrowagardenisland(player)
+		wait 2 ticks
+		set {sweetberries::%player's uuid%} to 0
+		loop 10 times:	
+			chance of 50%:
+				add 1 to {sweetberries::%player's uuid%}
+		set {carrots::%player's uuid%} to 0
+		loop 5 times:
+			chance of 30%:
+				add 1 to {carrots::%player's uuid%}
+		set {potatoes::%player's uuid%} to 0
+		loop 4 times:
+			chance of 10%:
+				add 1 to {potatoes::%player's uuid%}
+		set {beetroots::%player's uuid%} to 0
+		loop 3 times:
+			chance of 7%:
+				add 1 to {beetroots::%player's uuid%}
+		set {wheat::%player's uuid%} to 0
+		loop 3 times:
+			chance of 5%:
+				add 1 to {wheat::%player's uuid%}
+		set {pumpkin::%player's uuid%} to 0
+		loop 2 times:
+			chance of 3%:
+				add 1 to {pumpkin::%player's uuid%}
+		set {melon::%player's uuid%} to 0
+		chance of 2%:
+			add 1 to {melon::%player's uuid%}
+		set {spruce::%player's uuid%} to 0
+		chance of 1%:
+			add 1 to {spruce::%player's uuid%}
+
+function gengrowagardenisland(player: player):
+	if {x} is not set:
+		set {x} to 0
+	if {growagardenisland::%{_player}'s uuid%} is not set:
+		loadgrowagardenmap({x})
+		set {growagardenisland::%{_player}'s uuid%} to location {x} + 18, 76, 1007 in world "Grow_a_Garden"
+		teleport {_player} to {growagardenisland::%{_player}'s uuid%}
+		add 1000 to {x}
+		send "&8[&aGrow a Garden&8]&6 Deine Insel wurde generiert!" to {_player}
+
+command /removemyisland:
+	permission: op
+	trigger:
+		if {growagardenisland::%player's uuid%} is set:
+			delete {growagardenisland::%player's uuid%}
+			send "&8[&aGrow a Garden&8]&6 Deine Insel wurde entfernt!" to player
+		else:
+			send "&8[&aGrow a Garden&8]&c Du hast keine Insel!" to player
