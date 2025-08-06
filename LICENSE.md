@@ -5,7 +5,7 @@ Copyright (c) 2025 XNeedNoName
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated files (the “Software”), to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, subject to the following conditions:
 
 ## 1. Visible Attribution in Cytooxien Realms
-Any public Cytooxien Realm using this Software, modified or unmodified, must provide clear and visible attribution to the original author, **"XNeedNoName"**, in at least one of the following in-game locations:
+Any public Cytooxien Realm(or Minecraft Server) using this Software, modified or unmodified, must provide clear and visible attribution to the original author, **"XNeedNoName"**, in at least one of the following in-game locations:
 - The server's player **Tablist**
 - An active in-game **Scoreboard**
 
